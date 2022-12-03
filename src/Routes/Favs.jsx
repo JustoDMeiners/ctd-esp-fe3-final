@@ -5,6 +5,8 @@ import Card from "../Components/Card";
 
 const Favs = () => {
 
+  
+
   return (
     <>
       <h1>Dentists Favs</h1>

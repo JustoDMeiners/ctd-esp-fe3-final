@@ -70,12 +70,14 @@ form{
   margin: 0 auto;
 }
 
+
 .card{
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  width: 200px;
+  width: 300px;
+  height: 400px;
   padding: 0.5rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
 }
@@ -92,6 +94,9 @@ form{
   height: auto;
   flex-wrap: wrap;
   margin: 0 auto;
+  flex-direction: row;
+  
+  
 }
 
 table {
@@ -125,4 +130,27 @@ tr:nth-child(even) {
   background-color:white;
   color: black;
 
+}
+
+.grillaCard{
+  display: flex;
+  flex: 1 1;
+
+}
+
+.navBar{
+  display: flex;
+  justify-content: space-around;
+  flex:1 1;
+  align-items: center;
+  font-size: 150%;
+  border:  blueviolet 2px solid;
+  width: 95vw;
+
+  
+}
+
+.navBar a {
+  color: red;
+  font-family: 'Times New Roman', Times, serif;
 }
