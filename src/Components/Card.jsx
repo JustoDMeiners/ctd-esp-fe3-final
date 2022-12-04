@@ -1,22 +1,24 @@
+import { click } from "@testing-library/user-event/dist/click";
 import axios from "axios";
 import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Await, BrowserRouter, json, Link } from "react-router-dom";
 
 
 const Card = ({ nombre, apellido, id }) => {
   const [cards, setCards] = useState([])
   const [idMando, setId] = useState()
-  
-  
-  
-  const handleClick = ((e) => {
+  const [render,setRender] =useState([])
+
+ 
+
+    const addFav = () =>{
+      return "Hola"
+
+    }  
+    //window.localStorage.setItem('Fav', JSON.stringify(render))
     
-    setId(e.currentTarget.id)
-    console.log(e.currentTarget.id)
-  })
-  
   
   
   useEffect(() => {
@@ -30,11 +32,11 @@ const Card = ({ nombre, apellido, id }) => {
    
   
     
-   const addFav = ()=>{
-
+   const addFav2 = (e)=>{
       
-      localStorage.setItem('Usuario', JSON.stringify(cards[2]));
-      console.log(cards[2])
+      
+     // localStorage.setItem('Usuario', JSON.stringify(cards));
+      
   }
 
  
