@@ -5,73 +5,57 @@ import { useState } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 
 
-const Card = ({ nombre, apellido, idPaso }) => {
+const Card = ({ nombre, apellido, id }) => {
   const [cards, setCards] = useState([])
+  const [id, setId] = useState([])
 
-  const [idCard,setId]= useState("")
-
-  const id = useContext({idPaso})
 
   
+const handleClick = ((e) => console.log(e.currentTarget.id))
 
 
-  const navigate = () => {
-
-
-
-
-    const url= "/cards"
-    const destino = "/cards/" + cards.id
-    
-
-
-  }
+  
   useEffect(() => {
     axios
     .get("https://jsonplaceholder.typicode.com/users")
     .then((res)=>setCards(res.data))
     .catch((err) => console.log(err))
   }, [])
-   console.log(cards)
-
-  const addFav = ()=>{
-
 
     
-}
-
-
-    
-    
-    // Aqui iria la logica para agregar la Card en el localStorage
+   
   
+    
+   const addFav = ()=>{
+      localStorage.setItem('Usuario', JSON.stringify(cards[1]));
+      console.table()
+  }
 
+ 
   return (
 
     <>
 
-        {/* En cada card deberan mostrar en name - username y el id */}
-        
-          {cards.map((card) =>{
+          {cards.map((card) => {  
 
+            
             return(
-             <BrowserRouter>
+                
               <div>
                 <div id={card.id}>
-                <Link to= {`/card/${card.id}`}>
-
-                    <div className="card" onClick={navigate} > 
-                        <h1>{card.name}</h1>
-                        <h2>{card.id}</h2>
+                <Link to= {`/card/${card.id}`} state={{idPaso:card.id}}>
+                    <div className="card"> 
+                        <h1>{card.id}</h1>
+                        <h2>{card.name}</h2>
                         <h2>{card.username}</h2>
                     </div>
                 </Link>
+                      <button  className="favButton" onClick={handleClick} id={card.id}> Fav </button>
                       </div>
-                      <button  className="favButton" >Add Fav</button>
               
               </div>
               
-            </BrowserRouter>
+            
              
               
               )

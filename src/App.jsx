@@ -1,6 +1,4 @@
-
-
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Router, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import Contact from "./Routes/Contact";
@@ -10,40 +8,25 @@ import Favs from "./Routes/Favs";
 import ThemeProvider, { ThemeContext } from "./Components/ThemeProvider";
 import Detail from "./Routes/Detail";
 
-
-
-
-
-
-
-function App() {
+function App({id}) {
   return (
-    
-    <div>
+    <>
       <ThemeProvider>
         <Navbar />
-
-        <BrowserRouter>
-        <Routes>
-          <Route>
-          
-            <Route path="/contacto" element= {<Contact/>} />
-            <Route path="/favs" element={<Favs />} />
-            <Route path="/elementos" element={<Detail/>}/>
-          
-          
-          </Route>
-        </Routes>
-      </BrowserRouter>
         
-    
-      
-      
         
-        <Home/>
+         
+           <Routes>
+             <Route path="/" element={<Home idPaso= {id} />} />
+             <Route path="/contacto" element={<Contact />} />
+             <Route path="/fav" element={<Favs idPaso={id} />} />
+             <Route path="/elementos" element={<Detail idPaso={id} />} />
+           </Routes>
+         
+        
         <Footer />
       </ThemeProvider>
-  </div>
+    </>
   );
 }
 

@@ -1,20 +1,43 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 
 
 
 
-const Detail = ({idPaso}) => {
-const [cards, setCards] = useState([])
+const Detail = ({idMandado}) => {
+const [cards, setCards] = useState({
+    name: "",
+    email: "",
+    phone: null,
+    website:""
 
+})
+
+console.table(cardMandado)
+
+
+/*useEffect(() => {
+  axios
+  .get("https://jsonplaceholder.typicode.com/users")
+  .then((res)=>setCards(res.data))
+  .catch((err) => console.log(err))
+}, [])
+*/
+
+const { id } = useParams();
+
+
+
+ 
   useEffect(() => {
     axios 
-    .get(`https://jsonplaceholder.typicode.com/users/3`)
+    .get(`https://jsonplaceholder.typicode.com/users/$`)
     .then((res)=>setCards(res.data))
     .catch((err) => console.log(err))
   }, [])
-   
+  
   
 
   return (
@@ -23,7 +46,7 @@ const [cards, setCards] = useState([])
       <h1>Detalle </h1>
       <div className='card-grid'>
        
-            <div className='card'> 
+            <div className='card' key={cards.id}> 
               <h2>{cards.name} </h2>
               <h3>{cards.email}</h3>
               <h4>{cards.phone}</h4>

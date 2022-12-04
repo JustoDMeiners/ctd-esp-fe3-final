@@ -24,7 +24,7 @@ import {useState} from 'react';
           id="message"
           name="message"
           value={message}
-          onChange={handleEmailChange}
+          onChange={handleNombreChange}
         />
   
         {error && <h2 style={{color: 'red'}}>{error}</h2>}
