@@ -15,7 +15,7 @@ const [cards, setCards] = useState({
 
 })
 
-console.table(cardMandado)
+
 
 
 /*useEffect(() => {
