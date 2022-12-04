@@ -12,7 +12,7 @@ const Navbar = () => {
 
       <Link to="/fav">Favoritos</Link>
 
-      <button onClick={toggleTheme}>
+      <button onClick={toggleTheme} className="botonNavBar">
         Cambio {theme === "light" ? "dark" : "light"} mode
       </button>
     </nav>

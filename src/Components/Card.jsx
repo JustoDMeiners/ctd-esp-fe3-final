@@ -7,13 +7,17 @@ import { BrowserRouter, Link } from "react-router-dom";
 
 const Card = ({ nombre, apellido, id }) => {
   const [cards, setCards] = useState([])
-  const [idMando, setId] = useState([])
-
-
+  const [idMando, setId] = useState()
   
-const handleClick = ((e) => setId(e.currentTarget.id))
-
-
+  
+  
+  const handleClick = ((e) => {
+    
+    setId(e.currentTarget.id)
+    console.log(e.currentTarget.id)
+  })
+  
+  
   
   useEffect(() => {
     axios
@@ -27,8 +31,10 @@ const handleClick = ((e) => setId(e.currentTarget.id))
   
     
    const addFav = ()=>{
-      localStorage.setItem('Usuario', JSON.stringify(cards[idMando - 1]));
-      console.table()
+
+      
+      localStorage.setItem('Usuario', JSON.stringify(cards[2]));
+      console.log(cards[2])
   }
 
  
@@ -50,8 +56,8 @@ const handleClick = ((e) => setId(e.currentTarget.id))
                         <h2>{card.username}</h2>
                     </div>
                 </Link>
-                      <button  className="favButton" onClick={addFav} id={card.id}> Fav </button>
                       </div>
+                      <button  className="favButton" onClick={addFav} id={card.id}> Fav </button>
               
               </div>
               

@@ -7,35 +7,18 @@ import { useParams } from 'react-router-dom';
 
 
 const Detail = ({idMandado}) => {
-const [cards, setCards] = useState({
-    name: "",
-    email: "",
-    phone: null,
-    website:""
+    const [usuario, setUsuario] = useState([])
+    const { id } = useParams();
+    
 
-})
+  const obtenerUsuario = async() => {
+      const respuesta= await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+      const usuario=await respuesta.data
+      setUsuario(usuario)
+  }
 
-
-
-
-/*useEffect(() => {
-  axios
-  .get("https://jsonplaceholder.typicode.com/users")
-  .then((res)=>setCards(res.data))
-  .catch((err) => console.log(err))
-}, [])
-*/
-
-const { id } = useParams();
-
-
-
- 
   useEffect(() => {
-    axios 
-    .get(`https://jsonplaceholder.typicode.com/users/$`)
-    .then((res)=>setCards(res.data))
-    .catch((err) => console.log(err))
+    obtenerUsuario()
   }, [])
   
   
@@ -46,11 +29,11 @@ const { id } = useParams();
       <h1>Detalle </h1>
       <div className='card-grid'>
        
-            <div className='card' key={cards.id}> 
-              <h2>{cards.name} </h2>
-              <h3>{cards.email}</h3>
-              <h4>{cards.phone}</h4>
-              <h4>{cards.website}</h4>
+            <div className='card' key={usuario.id}> 
+              <h2>{usuario.name}</h2>
+              <h3>{usuario.email}</h3>
+              <h4>{usuario.phone}</h4>
+              <h5>{usuario.website}</h5>
             </div>
           
       

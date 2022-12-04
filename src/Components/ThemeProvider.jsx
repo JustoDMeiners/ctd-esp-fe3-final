@@ -9,6 +9,8 @@ export const ThemeProvider = ({ children }) => {
 	const backgroundColor = theme === "light" ? "#FFF" : "#333";
 	document.body.style.color = color;
 	document.body.style.backgroundColor = backgroundColor;
+	
+	
 	return React.createElement(
 		ThemeContext.Provider,
 		{ value: { theme, toggleTheme } },
