@@ -10,15 +10,44 @@ const Card = ({ nombre, apellido, id }) => {
   const [cards, setCards] = useState([])
   const [idMando, setId] = useState()
   const [render,setRender] =useState([])
+  
+  useEffect(() => {
+    
+  localStorage.setItem('Fav',JSON.stringify("Hola"))
+    
+  }, [render])
+  
+  
+  const addFav = ((e) => {
+    
+    let idMando = (e.currentTarget.id) -1
+    //console.log(idMando)
+    
+    
+    
+    if(window.localStorage.getItem('Fav') !== null) {
+      //console.log(render)
+      
+      render = localStorage.getItem('Fav')
+      //console.log(render)
+    } 
 
- 
-
-    const addFav = () =>{
-      return "Hola"
-
-    }  
+    setRender((prevItems) => {
+      const newItems = [...prevItems,  ...render, cards];
+      window.localStorage.setItem("Favs", JSON.stringify(newItems));
+      return newItems;
+    });
+    
+    
+    
     //window.localStorage.setItem('Fav', JSON.stringify(render))
     
+  })  
+
+  
+ 
+  
+  
   
   
   useEffect(() => {
