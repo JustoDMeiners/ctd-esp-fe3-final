@@ -19,7 +19,7 @@ const Form = () => {
 	// Handling the name change
 	const handleName = (e) => {
 		setName(e.target.value);
-		setErrorName(e.target.value.length < 5)
+		setErrorName(e.target.value.length <= 5)
 		setError(errorName||errorEmail)
 		console.log("name:" + error);
 		setSubmitted(false);
@@ -74,7 +74,7 @@ const Form = () => {
 					{{
 						color: error ? "red" : "black",
 					}}>
-					Recuerde un e-mail valido y un nombre mayor a 4 letras
+					Recuerde un e-mail valido y un nombre mayor o igual a 5 letras
 				</h2>
 			</div>
 		);
