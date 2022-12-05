@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const Detail = ({idMandado}) => {
+const Detail = () => {
     const [usuario, setUsuario] = useState([])
     const { id } = useParams();
     

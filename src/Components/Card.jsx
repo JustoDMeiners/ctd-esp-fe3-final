@@ -8,67 +8,46 @@ import { Await, BrowserRouter, json, Link } from "react-router-dom";
 
 const Card = ({ nombre, apellido, id }) => {
   const [cards, setCards] = useState([])
-  const [idMando, setId] = useState()
-  const [render,setRender] =useState([])
   
-  useEffect(() => {
-    
-  localStorage.setItem('Fav',JSON.stringify("Hola"))
-    
-  }, [render])
-  
-  
-  const addFav = ((e) => {
-    
-    let idMando = (e.currentTarget.id) -1
-    //console.log(idMando)
-    
-    
-    
-    if(window.localStorage.getItem('Fav') !== null) {
-      //console.log(render)
-      
-      render = localStorage.getItem('Fav')
-      //console.log(render)
-    } 
+  const array = []
 
-    setRender((prevItems) => {
-      const newItems = [...prevItems,  ...render, cards];
-      window.localStorage.setItem("Favs", JSON.stringify(newItems));
-      return newItems;
-    });
-    
-    
-    
-    //window.localStorage.setItem('Fav', JSON.stringify(render))
-    
-  })  
-
-  
- 
-  
-  
-  
-  
   useEffect(() => {
     axios
     .get("https://jsonplaceholder.typicode.com/users")
     .then((res)=>setCards(res.data))
     .catch((err) => console.log(err))
   }, [])
-
-    
-   
   
-    
-   const addFav2 = (e)=>{
-      
-      
-     // localStorage.setItem('Usuario', JSON.stringify(cards));
-      
-  }
+  
+  const addFav = ((e) => {
 
- 
+    const idMando= e.currentTarget.id
+    let objeto = {
+    
+      id: idMando,
+      name: cards[idMando].name,
+      username: cards[idMando].username,
+
+    }   
+
+    array.push(objeto) 
+    console.log(array)
+
+    
+      localStorage.setItem('Fav', JSON.stringify(array))
+     
+
+     
+    
+    
+
+    
+  })
+
+    
+      
+
+   
   return (
 
     <>
@@ -103,7 +82,7 @@ const Card = ({ nombre, apellido, id }) => {
 
         
 
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
+        
         
     </>
   );

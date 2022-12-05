@@ -8,7 +8,7 @@ import Favs from "./Routes/Favs";
 import ThemeProvider, { ThemeContext } from "./Components/ThemeProvider";
 import Detail from "./Routes/Detail";
 
-function App({id}) {
+function App({id,nombre,apellido}) {
   return (
     <>
       <ThemeProvider>
@@ -17,10 +17,10 @@ function App({id}) {
         
          
            <Routes>
-             <Route path="/" element={<Home idPaso= {id} />} />
+             <Route path="/" element={<Home  />} />
              <Route path="/contacto" element={<Contact />} />
-             <Route path="/fav" element={<Favs idPaso={id} />} />
-             <Route path="/card/:id" element={<Detail idPaso={id} />} />
+             <Route path="/fav" element={<Favs  />} />
+             <Route path="/card/:id" element={<Detail  />} />
            </Routes>
          
         
