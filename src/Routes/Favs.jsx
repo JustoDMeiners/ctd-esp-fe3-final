@@ -15,7 +15,7 @@ const Favs = () => {
 
       {FavConFormat == null ?<h1>Dentists Favs</h1> :FavConFormat.map((card) => {
         return (
-          <div key={card.id}>
+          <div key={card.id} >
             <div id={card.id} className="card-grid">
               <div className="card">
                 <img src={Logo} alt="Doctor" />

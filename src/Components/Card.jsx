@@ -12,16 +12,6 @@ import Logo from "../Components/doctor.jpg"
 const Card = ({ nombre, apellido, id}) => {
   
   const {color,setTheme,theme,backgroundColor,cards,setCards} = useContextGlobal()
-  const[colorNuevo,setColorNuevo]=useState()
-  
-  const nuevoColor= () => {
-    if(theme === 'light' ){
-
-      setColorNuevo('blue')
-    }else{
-      setColorNuevo('red')
-    }
-  }
   
   let array = [];
 
