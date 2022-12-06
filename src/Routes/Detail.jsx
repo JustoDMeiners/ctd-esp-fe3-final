@@ -26,7 +26,7 @@ const Detail = () => {
   return (
 
     <>
-      <h1>Detalle </h1>
+      <h1>Detalle de: {usuario.name} </h1>
       <div className='card-grid'>
        
             <div className='card' key={usuario.id}> 

@@ -8,14 +8,14 @@ import Favs from "./Routes/Favs";
 import ThemeProvider, { ThemeContext } from "./Components/ThemeProvider";
 import Detail from "./Routes/Detail";
 
-function App({id,nombre,apellido,color,theme}) {
+function App() {
   return (
     <>
       <ThemeProvider>
         <Navbar />
         
            <Routes>
-             <Route path="/" element={<Home  color={color} theme={theme} />} />
+             <Route path="/" element={<Home   />} />
              <Route path="/contacto" element={<Contact />} />
              <Route path="/fav" element={<Favs  />} />
              <Route path="/card/:id" element={<Detail  />} />

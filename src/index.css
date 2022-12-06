@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -23,8 +24,15 @@ code {
   cursor: pointer;
   border-radius:20px ;
   border: #000 solid 2px;
-  transform: translateX(100px);
+
+  color:red;
+ 
 }
+.favButton:hover{
+  background-color: rgba(183, 184, 186, 0.487);
+  
+}
+
 
 h1{
   text-align: center;
@@ -50,6 +58,7 @@ a:hover{
 footer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
   padding: 2rem;
   position: relative;
@@ -175,8 +184,12 @@ tr:nth-child(even) {
   
 }
 
-footer p .p-digital{
+footer .PDigital{
+  
   font-size: 30px;
   color: #000;
   font-weight: 500;
+}
+div img {
+  width: 60%;
 }

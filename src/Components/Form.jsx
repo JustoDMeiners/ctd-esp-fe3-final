@@ -9,14 +9,14 @@ const Form = () => {
 	}
 
 
-	// States for checking the errors
+	
 	const [submitted, setSubmitted] = useState(false);
 	const [errorName, setErrorName] = useState(true);
 	const [error, setError] = useState(true);
 	const [errorEmail, setErrorEmail] = useState(true);
 	
 
-	// Handling the name change
+	
 	const handleName = (e) => {
 		setName(e.target.value);
 		setErrorName(e.target.value.length <= 5)
@@ -25,7 +25,7 @@ const Form = () => {
 		setSubmitted(false);
 	};
 
-	// Handling the email change
+	
 	const handleEmail = (e) => {
 		setEmail(e.target.value);
 		setErrorEmail(!isValidEmail(e.target.value))
@@ -35,7 +35,7 @@ const Form = () => {
 	};
 
 
-	// Handling the form submission
+	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (error) {
@@ -46,7 +46,7 @@ const Form = () => {
 		}
 	};
 
-	// Showing success message
+	
 	const successMessage = () => {
 		return (
 			<div
@@ -60,7 +60,7 @@ const Form = () => {
 		);
 	};
 
-	// Showing error message if error is true
+	
 	const errorMessage = () => {
 		return (
 			<div

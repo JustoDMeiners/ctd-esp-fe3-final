@@ -4,7 +4,8 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer>
-        <p>Powered by <p className="p-digital">Digital House</p></p>
+        <p>Powered by</p>
+        <p className="PDigital">Digital House</p>
         
     </footer>
   )

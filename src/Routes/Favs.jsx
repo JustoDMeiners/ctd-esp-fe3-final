@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../Components/Card";
+import Logo from "../Routes/doctor.jpg"
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -14,12 +15,12 @@ const Favs = () => {
 
       {FavConFormat == null ?<h1>Dentists Favs</h1> :FavConFormat.map((card) => {
         return (
-          <div >
+          <div key={card.id}>
             <div id={card.id} className="card-grid">
               <div className="card">
-                <h1>{card.id}</h1>
+                <img src={Logo} alt="Doctor" />
                 <h2>{card.name}</h2>
-                <h2>{card.username}</h2>
+                <h3>{card.username}</h3>
               </div>
             </div>
           </div>

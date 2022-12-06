@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 export const ThemeContext = React.createContext({});
 export const ThemeProvider = ({ children }) => {
+
 	const [theme, setTheme] = useState("light");
 	const toggleTheme = () => {
 		setTheme(theme === "light" ? "dark" : "light");
@@ -13,7 +14,7 @@ export const ThemeProvider = ({ children }) => {
 	
 	return React.createElement(
 		ThemeContext.Provider,
-		{ value: { theme, toggleTheme } },
+		{ value: { theme, toggleTheme, color, backgroundColor } },
 		children
 	);
 };

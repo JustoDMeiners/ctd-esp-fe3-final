@@ -6,20 +6,28 @@ import { useState } from "react";
 import { Await, BrowserRouter, json, Link } from "react-router-dom";
 import { ThemeContext } from "./ThemeProvider";
 import ThemeProvider from "../Components/ThemeProvider";
+import { useContextGlobal } from "./utils/global.context";
+import Logo from "../Components/doctor.jpg"
 
-const Card = ({ nombre, apellido, id, color, theme}) => {
-  const [cards, setCards] = useState([]);
+const Card = ({ nombre, apellido, id}) => {
+  
+  const {color,setTheme,theme,backgroundColor,cards,setCards} = useContextGlobal()
+  const[colorNuevo,setColorNuevo]=useState()
+  
+  const nuevoColor= () => {
+    if(theme === 'light' ){
 
+      setColorNuevo('blue')
+    }else{
+      setColorNuevo('red')
+    }
+  }
+  
   const array = [];
 
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setCards(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
   const addFav = (e) => {
+    
+    
     const idMando = e.currentTarget.id;
     let objeto = {
       id: idMando,
@@ -28,29 +36,34 @@ const Card = ({ nombre, apellido, id, color, theme}) => {
     };
     if (array.find((x) => x.id === idMando) == undefined) {
       array.push(objeto);
-      console.log(array);
+      alert("Agregado a favoritos")
+    }else{
+      alert("Ya existe en favoritos")
+
     }
 
     localStorage.setItem("Fav", JSON.stringify(array));
   };
-  console.log(theme)
+  
   return (
     <>
       {cards.map((card) => {
         return (
-          <div className="contenedorDiv">
+          <div className="contenedorDiv" key={card.id}>
+            
             <div id={card.id}>
-                <Link to={`/card/${card.id}`} state={{ idPaso: card.id }}  >
                   <div className="card">
-                    <h1>{card.id}</h1>
+                    <img src={Logo} alt="Doctor" />
+                    
+                <Link to={`/card/${card.id}`} state={{ idPaso: card.id }}  >
                     <h2>{card.name}</h2>
-                    <h2>{card.username}</h2>
-                  </div>
                 </Link>
-            </div>
+                    <h3>{card.username}</h3>
             <button className="favButton" onClick={addFav} id={card.id}>
-              Fav
+             ❤
             </button>
+                  </div>
+            </div>
           </div>
         );
       })}
