@@ -23,9 +23,14 @@ const Card = ({ nombre, apellido, id}) => {
     }
   }
   
-  const array = [];
+  let array = [];
 
   const addFav = (e) => {
+    let inicial = JSON.parse(localStorage.getItem("Fav", ));
+    if (inicial != null) {
+      array=[...inicial]
+    }
+ 
     
     
     const idMando = e.currentTarget.id;

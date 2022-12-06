@@ -15,8 +15,6 @@ export const ContextProvider = ({ children }) => {
 	const backgroundColor = theme === "light" ? "#FFF" : "#333";
 	
 	
-  
-  
   const [cards, setCards] = useState([]);
   useEffect(() => {
     axios

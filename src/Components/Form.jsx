@@ -86,14 +86,14 @@ const Form = () => {
 				<h1>Contacto</h1>
 			</div>
 
-			{/* Calling to the methods */}
+			
 			<div className="messages">
 				{errorMessage()}
 				{successMessage()}
 			</div>
 
 			<form>
-				{/* Labels and inputs for form data */}
+				
 				<label className="label">Nombre</label>
 				<input
 					onChange={handleName}

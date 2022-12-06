@@ -7,7 +7,7 @@ import Logo from "../Routes/doctor.jpg"
 const Favs = () => {
   const FavSinFormat = window.localStorage.getItem("Fav");
   const FavConFormat = JSON.parse(FavSinFormat);
-  console.log(FavConFormat);
+  
 
   return (
     <>
