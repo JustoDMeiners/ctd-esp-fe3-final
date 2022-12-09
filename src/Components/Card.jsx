@@ -1,5 +1,5 @@
-import { click } from "@testing-library/user-event/dist/click";
-import axios from "axios";
+
+
 import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -11,45 +11,43 @@ import Logo from "../Components/doctor.jpg"
 
 const Card = ({ nombre, apellido, id}) => {
   
-  const {color,setTheme,theme,backgroundColor,cards,setCards} = useContextGlobal()
+  const {cards,setCards} = useContextGlobal()
   
   let array = [];
 
   const addFav = (e) => {
+    
     let inicial = JSON.parse(localStorage.getItem("Fav", ));
     if (inicial != null) {
       array=[...inicial]
     }
- 
-    
-    
     const idMando = e.currentTarget.id;
     let objeto = {
       id: idMando,
       name: cards[idMando].name,
       username: cards[idMando].username,
     };
+
     if (array.find((x) => x.id === idMando) == undefined) {
       array.push(objeto);
       alert("Agregado a favoritos")
     }else{
       alert("Ya existe en favoritos")
-
     }
 
     localStorage.setItem("Fav", JSON.stringify(array));
   };
   
+  
+  
   return (
     <>
       {cards.map((card) => {
         return (
-          <div className="contenedorDiv" key={card.id}>
-            
+          <div className="contenedorDiv" key={card.id}>            
             <div id={card.id}>
                   <div className="card">
-                    <img src={Logo} alt="Doctor" />
-                    
+                    <img src={Logo} alt="Doctor" />   
                 <Link to={`/card/${card.id}`} state={{ idPaso: card.id }}  >
                     <h2>{card.name}</h2>
                 </Link>

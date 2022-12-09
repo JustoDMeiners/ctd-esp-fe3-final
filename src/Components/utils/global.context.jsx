@@ -7,24 +7,20 @@ export const ContextGlobal = createContext( );
 
 
 export const ContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
-	const toggleTheme = () => {
-		setTheme(theme === "light" ? "dark" : "light");
-	};
-	const color = theme === "light" ? "#333" : "#FFF";
-	const backgroundColor = theme === "light" ? "#FFF" : "#333";
-	
-	
+  
+	let inicial = JSON.parse(localStorage.getItem("Fav", ));
   const [cards, setCards] = useState([]);
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setCards(res.data))
-      .catch((err) => console.log(err));
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then((res) => setCards(res.data))
+    .catch((err) => console.log(err));
   }, []);
+    
   
+ 
   return (
-    <ContextGlobal.Provider value={{cards,setCards,color,setTheme,color,backgroundColor,theme}}>
+    <ContextGlobal.Provider value={{cards,setCards}}>
       {children}
     </ContextGlobal.Provider>
   );
